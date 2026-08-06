@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scroll-behavior: auto;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Hide native cursor only on devices with a real pointer, and only once
+   the custom cursor component has mounted (see CustomCursor.tsx). */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: none;
+  }
+}
+
+::selection {
+  background-color: #c9633b;
+  color: #0d0d0d;
+}
+
+/* Utility: hairline rule used across section dividers */
+.hairline {
+  border-top: 1px solid rgba(247, 247, 245, 0.12);
+}
+
+/* Utility: mono eyebrow label style */
+.eyebrow {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a8680;
+}
+
+/* Focus visibility — never remove outlines, only restyle them */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #c9633b;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar (webkit) to match the ink/paper palette */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3733;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9633b;
+}
