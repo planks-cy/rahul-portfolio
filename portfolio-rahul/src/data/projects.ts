@@ -13,7 +13,7 @@ export const projects: Project[] = [
     role: "Editor & Colourist",
     tools: ["Premiere Pro", "DaVinci Resolve", "After Effects"],
     year: "2025",
-    coverImage: "/images/projects/placeholder-01.jpg",
+    coverImage: "/images/projects/DAZI 04.jpg",
     youtubeUrl: "",
   },
   {
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     role: "Graphic Designer",
     tools: ["Illustrator", "Figma", "Photoshop"],
     year: "2025",
-    coverImage: "/images/projects/placeholder-02.jpg",
+    coverImage: "/images/projects/DAZI 05.jpg",
     behanceUrl: "",
   },
   {
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     role: "Product Designer",
     tools: ["Figma", "FigJam", "Principle"],
     year: "2024",
-    coverImage: "/images/projects/placeholder-03.jpg",
+    coverImage: "/images/projects/DAZI 06.jpg",
     figmaUrl: "",
   },
   {
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     role: "Lead Editor",
     tools: ["Premiere Pro", "After Effects"],
     year: "2024",
-    coverImage: "/images/projects/placeholder-04.jpg",
+    coverImage: "/images/projects/DAZI 12.jpg",
     youtubeUrl: "",
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     role: "Graphic Designer",
     tools: ["Illustrator", "Photoshop", "InDesign"],
     year: "2024",
-    coverImage: "/images/projects/placeholder-05.jpg",
+    coverImage: "/images/projects/DAZI 14.jpg",
     behanceUrl: "",
   },
   {
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     role: "UI/UX Designer",
     tools: ["Figma", "Framer"],
     year: "2023",
-    coverImage: "/images/projects/placeholder-06.jpg",
+    coverImage:"/images/projects/DAZI 3.jpg",
     figmaUrl: "",
   },
 ];
