@@ -24,13 +24,8 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40, rotateX: 4, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.8, delay: (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      style={{ perspective: 1000 }}
-      className={`group relative block cursor-pointer overflow-hidden rounded-xl bg-white/[0.02] border border-white/10 hover:border-copper/50 transition-all duration-500 shadow-xl ${
+    <div
+      className={`group relative block cursor-pointer overflow-hidden rounded-xl bg-white/[0.02] border border-white/10 hover:border-copper/50 transition-colors duration-500 shadow-xl ${
         isWide ? "md:col-span-2" : "md:col-span-1"
       }`}
       onClick={handleClick}
@@ -40,7 +35,7 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 1.1, delay: 0.15 + (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: (index % 2) * 0.08, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full"
         >
           <Image
@@ -79,6 +74,6 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

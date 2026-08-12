@@ -22,8 +22,8 @@ export function About() {
       <SignalDivider label="About" />
 
       <div className="mt-12 grid gap-16 md:grid-cols-[1fr_1.2fr] md:gap-12">
-        <RevealText as="div" className="relative group">
-          <div className="relative w-full max-w-sm overflow-hidden rounded-xl border border-white/10 bg-ink shadow-2xl transition-all duration-500 group-hover:border-copper/40">
+        <div className="relative group">
+          <div className="relative w-full max-w-sm overflow-hidden rounded-xl border border-white/10 bg-ink shadow-2xl transition-colors duration-500 group-hover:border-copper/40">
             <motion.div
               initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
               whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
@@ -45,7 +45,7 @@ export function About() {
               <p className="eyebrow text-copper text-[0.7rem]">Visuals &amp; Motion Specialist</p>
             </div>
           </div>
-        </RevealText>
+        </div>
 
         <div>
           <RevealText as="h2" className="font-display text-3xl italic text-paper md:text-4xl">

@@ -17,7 +17,7 @@ export function VideoReel() {
         A minute of edited work, back to back.
       </RevealText>
 
-      <RevealText delay={0.1} className="relative mt-10 aspect-video w-full overflow-hidden rounded-lg bg-white/[0.03] border border-white/10 group">
+      <div className="relative mt-10 aspect-video w-full overflow-hidden rounded-lg bg-white/[0.03] border border-white/10 group">
         {playing ? (
           <iframe
             className="h-full w-full"
@@ -61,7 +61,7 @@ export function VideoReel() {
             </span>
           </button>
         )}
-      </RevealText>
+      </div>
     </section>
   );
 }
