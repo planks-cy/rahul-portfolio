@@ -35,10 +35,10 @@ export function VideoReel() {
             aria-label="Play showreel"
           >
             <motion.div
-              initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="w-full h-full"
             >
               <Image
@@ -47,6 +47,7 @@ export function VideoReel() {
                 width={1280}
                 height={720}
                 quality={80}
+                sizes="(max-width: 768px) 100vw, 1200px"
                 className="w-full h-auto block opacity-95"
               />
             </motion.div>

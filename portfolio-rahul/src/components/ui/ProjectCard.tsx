@@ -32,10 +32,10 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
     >
       <div className="relative w-full overflow-hidden bg-ink">
         <motion.div
-          initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.9, delay: (index % 2) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.6, delay: (index % 2) * 0.05, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full"
         >
           <Image
@@ -45,6 +45,7 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
             height={900}
             quality={80}
             priority={index < 2}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="w-full h-auto block"
           />
         </motion.div>

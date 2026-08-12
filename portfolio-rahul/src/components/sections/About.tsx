@@ -25,10 +25,10 @@ export function About() {
         <div className="relative group">
           <div className="relative w-full max-w-sm overflow-hidden rounded-xl border border-white/10 bg-ink shadow-2xl transition-colors duration-500 group-hover:border-copper/40">
             <motion.div
-              initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <Image
                 src="/images/projects/dazi 02.jpg"
@@ -36,6 +36,7 @@ export function About() {
                 width={800}
                 height={1000}
                 quality={80}
+                sizes="(max-width: 768px) 100vw, 400px"
                 className="w-full h-auto block"
               />
             </motion.div>
