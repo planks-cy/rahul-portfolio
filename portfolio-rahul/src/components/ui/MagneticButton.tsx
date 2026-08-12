@@ -22,10 +22,11 @@ export function MagneticButton({
       ref={ref}
       data-cursor-hover
       className={clsx(
-        "eyebrow inline-flex items-center gap-3 rounded-full px-7 py-4 transition-colors duration-300",
-        variant === "solid" && "bg-copper text-ink hover:bg-gold",
+        "eyebrow inline-flex items-center gap-3 rounded-full px-7 py-4 transition-all duration-300 shadow-md",
+        variant === "solid" &&
+          "bg-copper text-ink font-bold hover:bg-gold hover:shadow-copper/20 hover:shadow-lg",
         variant === "outline" &&
-          "border border-line text-paper hover:border-copper hover:text-copper",
+          "border border-white/20 text-paper font-semibold hover:border-copper hover:text-copper hover:bg-white/[0.04]",
         className
       )}
       {...props}

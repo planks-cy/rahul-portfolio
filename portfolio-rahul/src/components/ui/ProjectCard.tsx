@@ -1,46 +1,58 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Project } from "@/types";
 
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onSelect?: (project: Project) => void;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
   const externalLink =
-    project.behanceUrl || project.figmaUrl || project.youtubeUrl || "#";
+    project.behanceUrl || project.figmaUrl || project.youtubeUrl;
 
-  // Alternate span sizes so the grid reads as an editorial layout rather
-  // than a uniform tile grid.
   const isWide = index % 3 === 0;
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (!externalLink && onSelect) {
+      e.preventDefault();
+      onSelect(project);
+    }
+  };
+
   return (
-    <motion.a
-      href={externalLink}
-      target={externalLink !== "#" ? "_blank" : undefined}
-      rel={externalLink !== "#" ? "noopener noreferrer" : undefined}
-      data-cursor-hover
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative block overflow-hidden rounded-lg bg-white/[0.02] ${
+    <motion.div
+      initial={{ opacity: 0, y: 40, rotateX: 4, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.8, delay: (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      style={{ perspective: 1000 }}
+      className={`group relative block cursor-pointer overflow-hidden rounded-xl bg-white/[0.02] border border-white/10 hover:border-copper/50 transition-all duration-500 shadow-xl ${
         isWide ? "md:col-span-2" : "md:col-span-1"
       }`}
+      onClick={handleClick}
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
-        {/* Replace this placeholder block with an <Image> pointing at
-            project.coverImage once you add your own project stills. */}
-        <div
-          className="h-full w-full scale-105 bg-gradient-to-br from-beige/20 via-ink to-copper/10 transition-transform duration-700 ease-signal group-hover:scale-100"
-          role="img"
-          aria-label={`${project.title} cover placeholder`}
-        />
-        <div className="absolute inset-0 flex items-end bg-ink/0 p-6 transition-colors duration-500 group-hover:bg-ink/40">
-          <span className="eyebrow translate-y-3 text-paper opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-            View Project →
+      <div className="relative w-full overflow-hidden bg-ink">
+        <motion.div
+          initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
+          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 1.1, delay: 0.15 + (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full"
+        >
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className="w-full h-auto block"
+          />
+        </motion.div>
+
+        <div className="absolute inset-0 flex items-end justify-between bg-gradient-to-t from-ink/90 via-ink/20 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <span className="eyebrow translate-y-3 text-paper transition-all duration-500 group-hover:translate-y-0 bg-ink/80 px-3.5 py-1.5 rounded-full border border-white/10 shadow-lg">
+            {externalLink ? "View External Project →" : "Expand Full Image 🔍"}
           </span>
         </div>
       </div>
@@ -63,6 +75,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           ))}
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }

@@ -1,8 +1,5 @@
 import { Project } from "@/types";
 
-// PLACEHOLDER CONTENT — replace coverImage paths with your own files in
-// /public/images/projects/, and fill in behanceUrl / figmaUrl / youtubeUrl
-// with links to your real work.
 export const projects: Project[] = [
   {
     id: "signal-brand-film",
@@ -15,6 +12,18 @@ export const projects: Project[] = [
     year: "2025",
     coverImage: "/images/projects/DAZI 04.jpg",
     youtubeUrl: "",
+  },
+  {
+    id: "dazi-visual-identity",
+    title: "Dazi Vol. 02 — Motion Poster & Visual Identity",
+    category: "Graphic Design",
+    description:
+      "High-contrast visual design experiment merging bold typography, structured grid layouts, and expressive editorial compositions.",
+    role: "Visual Designer",
+    tools: ["Photoshop", "Illustrator", "Figma"],
+    year: "2025",
+    coverImage: "/images/projects/dazi 02.jpg",
+    behanceUrl: "",
   },
   {
     id: "current-identity-system",
@@ -38,6 +47,42 @@ export const projects: Project[] = [
     tools: ["Figma", "FigJam", "Principle"],
     year: "2024",
     coverImage: "/images/projects/DAZI 06.jpg",
+    figmaUrl: "",
+  },
+  {
+    id: "dazi-cinematic-reel",
+    title: "Dazi Studio — Cinematic Showreel Edit",
+    category: "Video Editing",
+    description:
+      "High-octane promotional showreel featuring dynamic pace cuts, custom light effects, and rhythmic sound synchronization.",
+    role: "Video Editor & Director",
+    tools: ["Premiere Pro", "DaVinci Resolve"],
+    year: "2024",
+    coverImage: "/images/projects/dazi 07.jpg",
+    youtubeUrl: "",
+  },
+  {
+    id: "aura-brand-editorial",
+    title: "Aura — Brand Editorial & Type System",
+    category: "Graphic Design",
+    description:
+      "Editorial print and digital layout system focused on dark mode minimalist aesthetics and bold layout rhythm.",
+    role: "Art Director",
+    tools: ["Illustrator", "Photoshop", "Figma"],
+    year: "2024",
+    coverImage: "/images/projects/DAZI 8.jpg",
+    behanceUrl: "",
+  },
+  {
+    id: "nexus-saas-interface",
+    title: "Nexus — Enterprise System Interface",
+    category: "UI/UX Design",
+    description:
+      "Next-gen web application dashboard design featuring dark glassmorphism, responsive data charts, and clean interaction design.",
+    role: "Lead UI/UX Designer",
+    tools: ["Figma", "Principle", "After Effects"],
+    year: "2024",
+    coverImage: "/images/projects/dazi 09.jpg",
     figmaUrl: "",
   },
   {
@@ -73,7 +118,8 @@ export const projects: Project[] = [
     role: "UI/UX Designer",
     tools: ["Figma", "Framer"],
     year: "2023",
-    coverImage:"/images/projects/DAZI 3.jpg",
+    coverImage: "/images/projects/DAZI 3.jpg",
     figmaUrl: "",
   },
 ];
+
