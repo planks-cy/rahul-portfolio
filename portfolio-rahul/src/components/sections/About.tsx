@@ -30,9 +30,12 @@ export function About() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img
+              <Image
                 src="/images/projects/dazi 02.jpg"
                 alt="Rahul Kumar Sinha — Creative Portrait"
+                width={800}
+                height={1000}
+                quality={80}
                 className="w-full h-auto block"
               />
             </motion.div>

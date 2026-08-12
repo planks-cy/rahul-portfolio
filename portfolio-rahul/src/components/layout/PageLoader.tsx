@@ -25,34 +25,47 @@ export function PageLoader() {
 
     document.body.style.overflow = "hidden";
 
+    const dismiss = () => {
+      document.body.style.overflow = "";
+      if (overlayRef.current) {
+        overlayRef.current.style.display = "none";
+      }
+    };
+
+    // Safety fallback: Ensure loader auto-dismisses after 600ms max
+    const safetyTimer = setTimeout(dismiss, 600);
+
     const path = pathRef.current;
-    if (!path) return;
+    if (!path) {
+      dismiss();
+      return;
+    }
 
-    const length = path.getTotalLength();
-    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+    try {
+      const length = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        document.body.style.overflow = "";
-      },
-    });
-
-    tl.to(path, {
-      strokeDashoffset: 0,
-      duration: 1.1,
-      ease: "power2.inOut",
-    }).to(overlayRef.current, {
-      opacity: 0,
-      duration: 0.6,
-      delay: 0.15,
-      ease: "power1.out",
-      onComplete: () => {
-        if (overlayRef.current) overlayRef.current.style.display = "none";
-      },
-    });
+      gsap.timeline({
+        onComplete: dismiss,
+      })
+        .to(path, {
+          strokeDashoffset: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        })
+        .to(overlayRef.current, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power1.out",
+          onComplete: dismiss,
+        });
+    } catch {
+      dismiss();
+    }
 
     return () => {
-      document.body.style.overflow = "";
+      clearTimeout(safetyTimer);
+      dismiss();
     };
   }, []);
 

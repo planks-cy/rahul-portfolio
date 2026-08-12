@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { RevealText } from "@/components/ui/RevealText";
 import { SignalDivider } from "@/components/ui/SignalDivider";
@@ -40,9 +41,12 @@ export function VideoReel() {
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               className="w-full h-full"
             >
-              <img
+              <Image
                 src="/images/projects/dazi 07.jpg"
                 alt="Rahul Kumar Sinha Showreel Thumbnail"
+                width={1280}
+                height={720}
+                quality={80}
                 className="w-full h-auto block opacity-95"
               />
             </motion.div>

@@ -43,9 +43,13 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           transition={{ duration: 1.1, delay: 0.15 + (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full"
         >
-          <img
+          <Image
             src={project.coverImage}
             alt={project.title}
+            width={1200}
+            height={900}
+            quality={80}
+            priority={index < 2}
             className="w-full h-auto block"
           />
         </motion.div>
